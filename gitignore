@@ -1,0 +1,11 @@
+*~
+*#
+**/*.orig
+.idea/
+.DS_Store
+.env
+urls.txt
+*.swp
+.pytest_cache/
+package-lock.json
+VIRTUAL
