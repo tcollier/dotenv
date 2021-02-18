@@ -1,2 +1,0 @@
-alias gitmaster='git co master && git fetch origin && git merge origin/master'
-alias pwgen='< /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c${1:-32};echo;'

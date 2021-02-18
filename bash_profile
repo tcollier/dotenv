@@ -1,10 +1,19 @@
-[[ -r ~/.bashrc ]] && . ~/.bashrc
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-source $HOME/.alias
+SHARED_SCRIPTS_DIR=$HOME/Dropbox/profile.d
+LOCAL_SCRIPTS_DIR=$HOME/Library/profile.d
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+export BASH_SILENCE_DEPRECATION_WARNING=1
 
-# Setting PATH for Python 3.6
-# The original version is saved in .bash_profile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
-export PATH
+for script in $SHARED_SCRIPTS_DIR/*.sh; do
+	source "$script"
+done
+
+for script in $LOCAL_SCRIPTS_DIR/*.sh; do
+	source "$script"
+done
+
+[ -n ~/.bashrc ] && source ~/.bashrc
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/tomcollier/.sdkman"
+[[ -s "/Users/tomcollier/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/tomcollier/.sdkman/bin/sdkman-init.sh"
+[[ -f ~/.bashrc ]] && source ~/.bashrc # ghcup-env

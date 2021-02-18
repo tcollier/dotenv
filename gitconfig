@@ -4,6 +4,7 @@
 [alias]
 	co = checkout
 	cob = checkout -b
+	cp = cherry-pick
 	ci = commit
 	rb = rebase
 	sync = !git pull --rebase && git push
@@ -40,3 +41,5 @@
 [filter "media"]
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f
+[pull]
+	ff = only
